@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Nesrumell Anasayfa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar sticky-top">
+    <div class="container-fluid">
+        <div class="row w-100 align-items-center">
+            <div class="col-12 col-md-4">
+                <h5 class="brand-name mb-0">Nesromell Tişört</h5>
+            </div>
+            <div class="col-12 col-md-8">
+                <div class="d-flex flex-wrap justify-content-end gap-2">
+                    <a href="index.html" class="btn btn-modern btn-orange">
+                        Anasayfa
+                    </a>
+                    <a href="hakkimda.html" class="btn btn-modern btn-orange">
+                        Hakkımda
+                    </a>
+                    <a href="iletisim.php" class="btn btn-modern btn-orange">
+                        İletişim
+                    </a>
+                    <a href="https://wa.me/905523019582?text=Merhaba,%20nesrumell.com'dan%20geliyorum,%20bir%20şey%20sormak%20istiyorum." 
+                    class="btn btn-modern btn-orange btn-whatsapp" target="_blank">
+                     WhatsApp
+                 </a>                 
+                    <div class="dropdown">
+                        <button class="btn btn-modern btn-orange" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-shopping-cart me-1"></i> Sepet
+                            <span class="badge bg-danger ms-1" id="cart-count">0</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end p-3 cart-dropdown">
+                            <div id="cart-items" class="mb-3">
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <strong>Toplam:</strong>
+                                <strong id="cart-total">$0.00</strong>
+                            </div>
+                            <button class="btn btn-success w-100" onclick="placeOrder()">Sipariş Ver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Tişört  1 2 3 -->
+<!-- ürün baslık -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">2024 En Çok Satan Modeller</h2>
+    <div class="row g-4">
+        <!-- Tişört  1 -->
+        <div class="col-12 col-md-4">
+            <div class="card product-card">
+                <img src="resim/Tişört 4.png" class="card-img-top" alt="Tişört 1">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Fare Desenli Nesrumell Tişört</h5>
+                    <p class="card-text">Ürünümüzde üç al iki öde kampanyamız vardır.</p>
+                    <div class="product-info">
+                        <div class="size-price-info">
+                            <span class="selected-size">Beden: <span id="size1">S</span></span>
+                            <span class="ms-3">$65.99</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" onchange="updateSize('size1', this.value)">
+                            <option value="S">Beden: S</option>
+                            <option value="M">Beden: M</option>
+                            <option value="L">Beden: L</option>
+                            <option value="XL">Beden: XL</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-custom-orange w-100" onclick="addToCart('Fare Desenli Nesrumell Tişört', 65.99, 'size1')">Sepete Ekle</button>
+                </div>
+            </div>
+        </div>
+        <!-- Tişört  2 -->
+        <div class="col-12 col-md-4">
+            <div class="card product-card">
+                <img src="resim/Tişört 5.png" class="card-img-top" alt="Tişört 2">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Mor Koyun Nesrumell Tişört</h5>
+                    <p class="card-text">Ürünümüzde üç al iki öde kampanyamız vardır.</p>
+                    <div class="product-info">
+                        <div class="size-price-info">
+                            <span class="selected-size">Beden: <span id="size2">S</span></span>
+                            <span class="ms-3">$38.50</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" onchange="updateSize('size2', this.value)">
+                            <option value="S">Beden: S</option>
+                            <option value="M">Beden: M</option>
+                            <option value="L">Beden: L</option>
+                            <option value="XL">Beden: XL</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-custom-orange w-100" onclick="addToCart('Mor Koyun Nesrumell Tişört', 38.50, 'size2')">Sepete Ekle</button>
+                </div>
+            </div>
+        </div>
+        <!-- Tişört 3 -->
+        <div class="col-12 col-md-4">
+            <div class="card product-card">
+                <img src="resim/Tişört 6.png" class="card-img-top" alt="Tişört 3">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Çiftlik Nesrumell Tişört</h5>
+                    <p class="card-text">Değişim mevcuttur sınırlı stok</p>
+                    <div class="product-info">
+                        <div class="size-price-info">
+                            <span class="selected-size">Beden: <span id="size3">S</span></span>
+                            <span class="ms-3">$49.99</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" onchange="updateSize('size3', this.value)">
+                            <option value="S">Beden: S</option>
+                            <option value="M">Beden: M</option>
+                            <option value="L">Beden: L</option>
+                            <option value="XL">Beden: XL</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-custom-orange w-100" onclick="addToCart('Çiftlik Nesrumell Tişört', 49.99, 'size3')">Sepete Ekle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br>
+<!-- Tişört  4 5 6 -->
+<!-- ürün baslık -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">En Yeni Tişört Modelleri</h2>
+    <div class="row g-4">
+        <!-- Tişört  4 -->
+        <div class="col-12 col-md-4">
+            <div class="card product-card">
+                <img src="resim/Tişört 1.png" class="card-img-top" alt="Tişört 4">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Gri Koyun Nesrumell Tişört</h5>
+                    <p class="card-text">Ürünümüzde üç al iki öde kampanyamız vardır.</p>
+                    <div class="product-info">
+                        <div class="size-price-info">
+                            <span class="selected-size">Beden: <span id="size1">S</span></span>
+                            <span class="ms-3">$21.00</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" onchange="updateSize('size1', this.value)">
+                            <option value="S">Beden: S</option>
+                            <option value="M">Beden: M</option>
+                            <option value="L">Beden: L</option>
+                            <option value="XL">Beden: XL</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-custom-orange w-100" onclick="addToCart('Gri Koyun Nesrumell Tişört', 21.00, 'size1')">Sepete Ekle</button>
+                </div>
+            </div>
+        </div>
+        <!-- Tişört 5 -->
+        <div class="col-12 col-md-4">
+            <div class="card product-card">
+                <img src="resim/Tişört 2.png" class="card-img-top" alt="Tişört 5">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Turuncu Koyun Nesrumell Tişört</h5>
+                    <p class="card-text">Ürünümüzde üç al iki öde kampanyamız vardır.</p>
+                    <div class="product-info">
+                        <div class="size-price-info">
+                            <span class="selected-size">Beden: <span id="size2">S</span></span>
+                            <span class="ms-3">$16.99</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" onchange="updateSize('size2', this.value)">
+                            <option value="S">Beden: S</option>
+                            <option value="M">Beden: M</option>
+                            <option value="L">Beden: L</option>
+                            <option value="XL">Beden: XL</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-custom-orange w-100" onclick="addToCart('Turuncu Koyun Nesrumell Tişört', 16.99, 'size2')">Sepete Ekle</button>
+                </div>
+            </div>
+        </div>
+        <!-- Tişört 6 -->
+        <div class="col-12 col-md-4">
+            <div class="card product-card">
+                <img src="resim/Tişört 3.png" class="card-img-top" alt="Tişört 6">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Eşşek Desenli Nesrumell Tişört</h5>
+                    <p class="card-text">Değişim mevcuttur sınırlı stok</p>
+                    <div class="product-info">
+                        <div class="size-price-info">
+                            <span class="selected-size">Beden: <span id="size3">S</span></span>
+                            <span class="ms-3">$13.99</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" onchange="updateSize('size3', this.value)">
+                            <option value="S">Beden: S</option>
+                            <option value="M">Beden: M</option>
+                            <option value="L">Beden: L</option>
+                            <option value="XL">Beden: XL</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-custom-orange w-100" onclick="addToCart('Eşşek Desenli Nesrumell Tişört', 13.99, 'size3')">Sepete Ekle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- footer -->
+
+<footer class="enhanced-footer">
+    <div class="footer-top-border"></div>
+    <div class="footer-content">
+        <nav class="footer-nav">
+            <a href="index.html">Anasayfa</a>
+            <a href="hakkimda.html">Hakkımızda</a>
+            <a href="iletisim.html">İletişim</a>
+            <a href="https://wa.me/905523019582?text=Merhaba,%20nesrumell.com'dan%20geliyorum,%20bir%20şey%20sormak%20istiyorum." 
+                    class="whatsapp-link" target="_blank">
+                     WhatsApp
+                   </a>
+        </nav>
+        <p class="copyright-text">
+            © 2024 Tüm hakları <a href="https://nesrumell.com">nesrumell.com</a>'a aittir
+        </p>
+    </div>
+</footer>
+
+
+<!-- sepet kısmı-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script>
+
+    // Sepetin içine gelecek elemanlar
+    let cart = [];
+    
+    // localStorage'dan sepeti yükleme
+    function loadCart() {
+        const storedCart = localStorage.getItem('cart');
+        if (storedCart) {
+            cart = JSON.parse(storedCart);
+        }
+        updateCart();
+    }
+    
+    // localStorage'a sepeti kaydetme
+    function saveCart() {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+    
+    // Beden ayarları değiştirme
+    function updateSize(sizeId, value) {
+        document.getElementById(sizeId).textContent = value;
+    }
+    
+    // Sepete eleman ekleme
+    function addToCart(name, price, sizeId) {
+        const size = document.getElementById(sizeId).textContent;
+        const productKey = `${name}-${size}`;
+        const existingItem = cart.find(item => item.productKey === productKey);
+    
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                productKey: productKey,
+                name: name,
+                price: price,
+                size: size,
+                quantity: 1
+            });
+        }
+        saveCart(); // Değişiklikleri kaydet
+        updateCart();
+    }
+    
+    // Sepetten eleman silme
+    function removeFromCart(index, event) {
+        event.stopPropagation();
+        cart.splice(index, 1);
+        saveCart(); // Değişiklikleri kaydet
+        updateCart();
+    }
+    
+    // Sepetteki ürünü güncelleme
+    function updateQuantity(index, change, event) {
+        event.stopPropagation();
+        cart[index].quantity += change;
+        if (cart[index].quantity < 1) {
+            cart.splice(index, 1);
+        }
+        saveCart(); // Değişiklikleri kaydet
+        updateCart();
+    }
+    
+    // Sepeti güncelleme
+    function updateCart() {
+        const cartItems = document.getElementById('cart-items');
+        const cartCount = document.getElementById('cart-count');
+        const cartTotal = document.getElementById('cart-total');
+    
+        cartItems.innerHTML = '';
+        let total = 0;
+        let count = 0;
+    
+        cart.forEach((item, index) => {
+            total += item.price * item.quantity;
+            count += item.quantity;
+    
+            cartItems.innerHTML += `
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <div>
+                        <h6 class="mb-0">${item.name} (${item.size})</h6>
+                        <small>$${item.price}</small>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-sm btn-outline-secondary me-2" onclick="updateQuantity(${index}, -1, event)">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="btn btn-sm btn-outline-secondary ms-2" onclick="updateQuantity(${index}, 1, event)">+</button>
+                        <button class="btn btn-sm btn-outline-danger ms-2" onclick="removeFromCart(${index}, event)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+    
+        cartCount.textContent = count;
+        cartTotal.textContent = `$${total.toFixed(2)}`;
+    }
+    // Sipariş gönderme fonksiyonu
+
+    function placeOrder() {
+        if (cart.length === 0) {
+            alert("Sepetiniz boş. Sipariş veremezsiniz.");
+            return;
+        }
+
+        fetch('siparisekle.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(cart)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Sipariş sırasında bir hata oluştu.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(cart);
+            cart = []; // cartın içi boşaltılıyor 
+            saveCart();
+            updateCart(); // cart güncelleniyor
+            alert(data.message)
+        })
+        .catch(error => {
+            console.log("Bir hata oluştu: " + error.message);
+        });
+    }
+    // Sayfa yüklendiğinde sepeti localStorage'dan yükle
+    window.onload = loadCart;
+</script>
+    
+
+</body>
+</html>

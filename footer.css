@@ -1,0 +1,74 @@
+/* footer */
+.enhanced-footer {
+    background-color: #0a0a0a;
+    color: #fff;
+    padding: 25px 0 15px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-top-border {
+    height: 3px;
+    background: linear-gradient(to right, #ff6b24, #ff8c24);
+    margin-bottom: 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+    padding: 5px 10px;
+}
+
+.footer-nav a:hover {
+    color: #ff6b24;
+}
+
+.copyright-text {
+    text-align: center;
+    color: #666;
+    margin: 0;
+    padding-top: 15px;
+    border-top: 1px solid #222;
+    font-size: 14px;
+}
+
+.copyright-text a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.copyright-text a:hover {
+    color: #ff6b24;
+}
+
+.whatsapp-link {
+    color: #25D366 !important;
+}
+
+.whatsapp-link:hover {
+    color: #128C7E !important;
+}
+
+@media (max-width: 600px) {
+    .footer-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}

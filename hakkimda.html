@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Nesrumell Hakkımda</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="hakkimda.css">
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar sticky-top">
+    <div class="container-fluid">
+        <div class="row w-100 align-items-center">
+            <div class="col-12 col-md-4">
+                <h5 class="brand-name mb-0">Nesromell Tişört</h5>
+            </div>
+            <div class="col-12 col-md-8">
+                <div class="d-flex flex-wrap justify-content-end gap-2">
+                    <a href="index.html" class="btn btn-modern btn-orange">
+                        Anasayfa
+                    </a>
+                    <a href="hakkimda.html" class="btn btn-modern btn-orange">
+                        Hakkımda
+                    </a>
+                    <a href="iletisim.php" class="btn btn-modern btn-orange">
+                        İletişim
+                    </a>
+                    <a href="https://wa.me/905523019582?text=Merhaba,%20nesrumell.com'dan%20geliyorum,%20bir%20şey%20sormak%20istiyorum." 
+                    class="btn btn-modern btn-orange btn-whatsapp" target="_blank">
+                     WhatsApp
+                 </a>                 
+                    <div class="dropdown">
+                        <button class="btn btn-modern btn-orange" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-shopping-cart me-1"></i> Sepet
+                            <span class="badge bg-danger ms-1" id="cart-count">0</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end p-3 cart-dropdown">
+                            <div id="cart-items" class="mb-3">
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <strong>Toplam:</strong>
+                                <strong id="cart-total">$0.00</strong>
+                            </div>
+                            <button class="btn btn-success w-100">Sipariş Ver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- hakkımda -->
+ 
+<section class="about-container">
+    <div class="about-header">
+        <h1>Hakkımızda</h1>
+    </div>
+
+    <div class="about-content">
+        <div class="highlight-box">
+            <p class="about-text">
+                Nesromell olarak, 2024 yılından bu yana özgün tasarımlarımız ve kaliteli kumaşlarımızla moda dünyasına yeni bir soluk getiriyoruz. Her bir tişörtümüz, konfor ve stilin mükemmel uyumunu yansıtmaktadır.
+            </p>
+        </div>
+
+        <div class="about-text text2">
+            <p>
+                Koleksiyonlarımızı oluştururken müşterilerimizin beklentilerini ve güncel trendleri bir araya getiriyoruz. Sürdürülebilir moda anlayışımız ve yenilikçi tasarım yaklaşımımızla, her sezon benzersiz parçalar sunuyoruz.
+            </p>
+        </div>
+    </div>
+
+    <div class="stats-section">
+        <div class="stat-item">
+            <div class="stat-number">1000+</div>
+            <div class="stat-label">Mutlu Müşteri</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Özgün Tasarım</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">%100</div>
+            <div class="stat-label">Müşteri Memnuniyeti</div>
+        </div>
+    </div>
+</section>
+
+
+<!-- footer -->
+<footer class="enhanced-footer">
+    <div class="footer-top-border"></div>
+    <div class="footer-content">
+        <nav class="footer-nav">
+            <a href="index.html">Anasayfa</a>
+            <a href="hakkimda.html">Hakkımızda</a>
+            <a href="index.html">İletişim</a>
+            <a href="https://wa.me/905523019582?text=Merhaba,%20nesrumell.com'dan%20geliyorum,%20bir%20şey%20sormak%20istiyorum." 
+                    class="whatsapp-link" target="_blank">
+                     WhatsApp
+                   </a>
+        </nav>
+        <p class="copyright-text">
+            © 2024 Tüm hakları <a href="https://nesrumell.com">nesrumell.com</a>'a aittir
+        </p>
+    </div>
+</footer>
+
+
+<!-- sepet kısmı-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js">
+    
+let cart = [];
+
+function updateSize(sizeId, value) {
+    document.getElementById(sizeId).textContent = value;
+}
+
+function addToCart(name, price, sizeId) {
+    const size = document.getElementById(sizeId).textContent;
+    const productKey = `${name}-${size}`;
+    const existingItem = cart.find(item => item.productKey === productKey);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            productKey: productKey,
+            name: name,
+            price: price,
+            size: size,
+            quantity: 1
+        });
+    }
+    updateCart();
+}
+
+function removeFromCart(index, event) {
+    event.stopPropagation();
+    cart.splice(index, 1);
+    updateCart();
+}
+
+function updateQuantity(index, change, event) {
+    event.stopPropagation();
+    cart[index].quantity += change;
+    if (cart[index].quantity < 1) {
+        cart.splice(index, 1);
+    }
+    updateCart();
+}
+
+function updateCart() {
+    const cartItems = document.getElementById('cart-items');
+    const cartCount = document.getElementById('cart-count');
+    const cartTotal = document.getElementById('cart-total');
+    
+    cartItems.innerHTML = '';
+    let total = 0;
+    let count = 0;
+    
+    cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+        count += item.quantity;
+        
+        cartItems.innerHTML += `
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                    <h6 class="mb-0">${item.name} (${item.size})</h6>
+                    <small>$${item.price}</small>
+                </div>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-sm btn-outline-secondary me-2" onclick="updateQuantity(${index}, -1, event)">-</button>
+                    <span>${item.quantity}</span>
+                    <button class="btn btn-sm btn-outline-secondary ms-2" onclick="updateQuantity(${index}, 1, event)">+</button>
+                    <button class="btn btn-sm btn-outline-danger ms-2" onclick="removeFromCart(${index}, event)">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+    
+    cartCount.textContent = count;
+    cartTotal.textContent = `$${total.toFixed(2)}`;
+}
+</script>
+
+</body>
+</html>

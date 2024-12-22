@@ -1,0 +1,78 @@
+.contact-container {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 40px;
+    background: white;
+    box-shadow: 0 0 30px rgba(0,0,0,0.05);
+    border-radius: 10px;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.contact-header::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #ff6b24, #ff8c24);
+    margin: 15px auto;
+}
+
+.contact-header h1 {
+    color: #333;
+    font-size: 2em;
+    margin: 0;
+}
+
+.form-group {
+    margin-bottom: 45px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #ff6b24;
+    box-shadow: 0 0 0 2px rgba(255,107,36,0.1);
+}
+
+textarea.form-input {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #ff6b24, #ff8c24);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,107,36,0.2);
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        margin: 20px;
+        padding: 20px;
+    }
+}
